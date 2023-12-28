@@ -9,14 +9,18 @@ import { connect } from "react-redux";
 const Home = (props) => {
     // const  history  = useHistory();
     // console.log(props.user);
-  
+    console.log('props. user:', props.user);
     return(//(props.user && 
         <Container>
+
             {/* {
-                !props.user ?<Redirect to = "/" /> :
-                <Redirect to = "/home" />
+               
+               !props.user ? <Redirect to = "./" /> :
+                <Redirect to = "./home" />
                 
-            } */}
+            } */
+             !props.user && <Redirect to = "/"/>
+            }
             <Section>
                 <h5>
                     <a>
@@ -33,6 +37,8 @@ const Home = (props) => {
                 <Main></Main>
                 <Rightside></Rightside>
             </Layout>
+
+            
         </Container>
     //)
     );
