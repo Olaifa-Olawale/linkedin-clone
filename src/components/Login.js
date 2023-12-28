@@ -1,9 +1,16 @@
 import styled from "styled-components";
 import { connect } from "react-redux";
 import { signInAPI } from "../actions";
-import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
+import { Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const Login = (props) => {
+    // const  history  = useHistory();
+    // console.log(props.user);
+    // if (props.user) {
+    //     return <Redirect to = "/home"/>
+    //     // history.push('/signin');  // throws Typescript error
+    // }
     return (
         <Container>
             {
@@ -184,7 +191,7 @@ const mapStateToProps = (state) =>{
     return {
         user: state.userState.user,
     };
-}
+};
 
  
 

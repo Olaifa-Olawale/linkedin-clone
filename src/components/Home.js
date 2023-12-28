@@ -2,10 +2,21 @@ import styled from "styled-components";
 import Leftside from "./Leftside";
 import Main from "./Main";
 import Rightside from "./Rightside";
+import { Redirect } from "react-router-dom";
+import { connect } from "react-redux";
+// import { useHistory } from "react-router-dom";
 
 const Home = (props) => {
-    return(
+    // const  history  = useHistory();
+    // console.log(props.user);
+  
+    return(//(props.user && 
         <Container>
+            {/* {
+                !props.user ?<Redirect to = "/" /> :
+                <Redirect to = "/home" />
+                
+            } */}
             <Section>
                 <h5>
                     <a>
@@ -23,6 +34,7 @@ const Home = (props) => {
                 <Rightside></Rightside>
             </Layout>
         </Container>
+    //)
     );
 };
 
@@ -84,4 +96,14 @@ const Layout = styled.div`
     }
 
 `
-export default Home;
+
+
+const mapStateToProps = (state) => {
+    return {
+        user: state.userState.user,
+    };
+};
+
+
+
+export default connect(mapStateToProps)(Home);

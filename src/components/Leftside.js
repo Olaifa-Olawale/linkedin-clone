@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { connect } from "react-redux";
 
 
 const Leftside = (pros) =>
@@ -13,7 +14,8 @@ const Leftside = (pros) =>
                    <Photo>
                     </Photo> 
                     <Link>
-                        Welcome, there!
+                        Welcome, {pros.user ? 
+                        (pros.user.displayName ): "there"}!
                     </Link>
                 </a>
                 <a>
@@ -221,4 +223,15 @@ const CommunityCard = styled(ArtCard)`
 
 `;
 
-export default Leftside;
+
+
+const mapStateToProps = (state) => {
+    return {
+        user: state.userState.user,
+    };
+};
+
+
+
+
+export default connect(mapStateToProps)(Leftside);
